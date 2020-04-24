@@ -1,0 +1,10 @@
+export const THEME = {
+  MAIN_COLOR: "#0f7eb6",
+  DANGER_COLOR: "#ff0000",
+  BORDER_COLOR: "#030570",
+  SAVE_COLOR_BUTT: "#00ff00",
+  BG_COLOR: "#eae8fc",
+  BORDER_SIZE: 5,
+  BORDER_RADIUS: 15,
+  PLACE_HOLDER_COLOR: "#c2c2fc",
+};
