@@ -17,8 +17,19 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
   const margin =
     (data.minLot * data.contract * data.quote) / 100 / data.baseQuote;
 
+  const sizeDigits = data.quote.toString().includes(".")
+    ? data.quote.toString().split(".").pop().length
+    : 0;
+  let priceAtr;
+  if (sizeDigits === 5) {
+    priceAtr = data.ATR * 1000;
+  } else if (data.minLot != 1) {
+    priceAtr = data.ATR * 10;
+  } else priceAtr = data.ATR;
+
   const dataSize = size >= 3 ? size : 3;
-  const priceAtr = data.minLot == 1 ? data.ATR * 1 : data.ATR * 10;
+
+  // let priceAtr = data.minLot == 1 ? data.ATR * 1 : data.ATR * 10;
   const minSum = margin + priceAtr;
   const maxLotVal = (balance / dataSize / minSum) * data.minLot;
   const maxLot =
