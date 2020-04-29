@@ -13,7 +13,8 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
     dispatch(removeItem(data.id));
   };
 
-  const myAtr = (data.ATR * 80) / 100;
+  let myAtr = (data.ATR * 80) / 100;
+
   const margin =
     (data.minLot * data.contract * data.quote) / 100 / data.baseQuote;
 
@@ -29,7 +30,6 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
 
   const dataSize = size >= 3 ? size : 3;
 
-  // let priceAtr = data.minLot == 1 ? data.ATR * 1 : data.ATR * 10;
   const minSum = margin + priceAtr;
   const maxLotVal = (balance / dataSize / minSum) * data.minLot;
   const maxLot =
@@ -68,7 +68,9 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
         </View>
         <View style={styles.contentItem}>
           <Text style={styles.textHead}>Take size</Text>
-          <Text style={styles.textVal}>{myAtr.toFixed(2)}</Text>
+          <Text style={styles.textVal}>
+            {sizeDigits == 5 ? myAtr.toFixed(4) : myAtr.toFixed(2)}
+          </Text>
         </View>
       </View>
     </View>
