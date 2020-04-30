@@ -35,6 +35,7 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
   const maxLot =
     data.minLot == 1 ? Math.floor(maxLotVal) : maxLotVal.toFixed(2);
 
+  console.log(dataSize);
   return (
     <View style={styles.item}>
       <View style={styles.positionItem}>

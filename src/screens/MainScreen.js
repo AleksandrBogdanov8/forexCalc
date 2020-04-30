@@ -46,7 +46,7 @@ export const MainScreen = ({ navigation }) => {
               <DataItem
                 data={item}
                 balance={bal}
-                size={() => myData.length}
+                size={myData.length}
                 chengeI={() => {
                   changeItem(item);
                 }}
