@@ -20,21 +20,23 @@ export const ChangeItem = ({ navigation, route }) => {
     selItem.baseQuote = basQuoteVal;
 
     dispatch(modifiItem(selItem));
-    navigation.navigate("Main");
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Main" }],
+    });
   };
 
   return (
     <View style={styles.wrapper}>
       <ImageBackground
         source={require("../../assets/myImg/bgImg.jpg")}
-        style={styles.imgBg}
-      >
+        style={styles.imgBg}>
         <TextInput
           style={styles.inputVal}
           defaultValue={atrVal.toString()}
           maxLength={7}
-          keyboardType="numeric"
-          placeholder="Input new ATR"
+          keyboardType='numeric'
+          placeholder='Input new ATR'
           placeholderTextColor={THEME.PLACE_HOLDER_COLOR}
           backgroundColor={THEME.BG_COLOR}
           onChangeText={setAtrVal}
@@ -43,8 +45,8 @@ export const ChangeItem = ({ navigation, route }) => {
           style={styles.inputVal}
           maxLength={10}
           defaultValue={quoteVal.toString()}
-          keyboardType="numeric"
-          placeholder="Input new quote"
+          keyboardType='numeric'
+          placeholder='Input new quote'
           placeholderTextColor={THEME.PLACE_HOLDER_COLOR}
           backgroundColor={THEME.BG_COLOR}
           onChangeText={setQuoteVal}
@@ -54,8 +56,8 @@ export const ChangeItem = ({ navigation, route }) => {
           style={styles.inputVal}
           maxLength={10}
           defaultValue={basQuoteVal.toString()}
-          keyboardType="numeric"
-          placeholder="Input new baseQuote"
+          keyboardType='numeric'
+          placeholder='Input new baseQuote'
           placeholderTextColor={THEME.PLACE_HOLDER_COLOR}
           backgroundColor={THEME.BG_COLOR}
           onChangeText={setBasQuoteVal}

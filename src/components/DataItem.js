@@ -30,7 +30,7 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
 
   const dataSize = size >= 3 ? size : 3;
 
-  const minSum = margin + priceAtr;
+  const minSum = Math.ceil(margin + priceAtr);
   const maxLotVal = (balance / dataSize / minSum) * data.minLot;
   const maxLot =
     data.minLot == 1 ? Math.floor(maxLotVal) : maxLotVal.toFixed(2);
@@ -38,17 +38,17 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
     <View style={styles.item}>
       <View style={styles.positionItem}>
         <FontAwesome5.Button
-          name="minus"
+          name='minus'
           color={THEME.DANGER_COLOR}
-          backgroundColor="rgba(255, 255, 255, 0)"
+          backgroundColor='rgba(255, 255, 255, 0)'
           size={30}
           onPress={itemDel}
         />
         <Text style={styles.name}>{data.name}</Text>
         <MaterialCommunityIcons.Button
-          name="settings-outline"
+          name='settings-outline'
           color={THEME.MAIN_COLOR}
-          backgroundColor="rgba(255, 255, 255, 0)"
+          backgroundColor='rgba(255, 255, 255, 0)'
           size={30}
           onPress={chengeI}
         />
@@ -57,7 +57,7 @@ export const DataItem = ({ data, size, balance, chengeI }) => {
       <View style={styles.content}>
         <View style={styles.contentItem}>
           <Text style={styles.textHead}>min.sum</Text>
-          <Text style={styles.textVal}>{minSum.toFixed(2)}</Text>
+          <Text style={styles.textVal}>{minSum}</Text>
         </View>
         <View style={styles.contentItem}>
           <Text style={styles.textHead}>lot</Text>
