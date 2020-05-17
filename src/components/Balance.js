@@ -7,9 +7,12 @@ import { THEME } from "../theme";
 export const Balance = ({ goTo, val }) => {
   return (
     <View style={styles.content}>
+      <Text style={{ ...styles.text, color: "#027502" }}>
+        {(val * 20) / 100} $
+      </Text>
       <Text style={styles.text}>{val} $</Text>
       <MaterialCommunityIcons.Button
-        name="settings-outline"
+        name='settings-outline'
         size={27}
         backgroundColor={THEME.BG_COLOR}
         color={THEME.MAIN_COLOR}
